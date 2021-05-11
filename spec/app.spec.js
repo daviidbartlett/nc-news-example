@@ -78,36 +78,6 @@ describe('/', () => {
           .expect(200);
         expect(body.articles).to.be.ascendingBy('created_at');
       });
-      it('GET status:200, serves up a max of 10 articles by default', async () => {
-        const { body } = await request(app).get('/api/articles').expect(200);
-        expect(body.articles).to.have.lengthOf(10);
-      });
-      it('GET status:200, accepts a limit query to alter the number of articles served up', async () => {
-        const { body } = await request(app)
-          .get('/api/articles?limit=5')
-          .expect(200);
-        expect(body.articles).to.have.lengthOf(5);
-      });
-      it('GET status:400, when passed an invalid limit query', async () => {
-        const { body } = await request(app)
-          .get('/api/articles?limit=not-a-number')
-          .expect(400);
-        expect(body.msg).to.equal('Bad Request');
-      });
-      it('GET status:200, accepts a `p` to serve a second "page" of articles', async () => {
-        const { body } = await request(app)
-          .get('/api/articles?p=2&sort_by=title&order=asc')
-          .expect(200);
-        expect(body.articles[0].title).to.equal(
-          'UNCOVERED: catspiracy to bring down democracy'
-        );
-      });
-      it('GET status:400, when passed an invalid p query', async () => {
-        const { body } = await request(app)
-          .get('/api/articles?p=not-a-number&sort_by=title&order=asc')
-          .expect(400);
-        expect(body.msg).to.equal('Bad Request');
-      });
       it('GET status:400, when passed an invalid order query', async () => {
         const { body } = await request(app)
           .get('/api/articles?order=not-asc-or-desc')
@@ -143,16 +113,6 @@ describe('/', () => {
       it('INVALID METHOD status:405', async () => {
         const { body } = await request(app).put('/api/articles').expect(405);
         expect(body.msg).to.equal('Method Not Allowed');
-      });
-      it('GET status:200, responds with the total_count of articles', async () => {
-        const { body } = await request(app).get('/api/articles').expect(200);
-        expect(body.total_count).to.equal(12);
-      });
-      it('GET status:200, responds with the total_count of articles matching the specified query', async () => {
-        const { body } = await request(app)
-          .get('/api/articles?topic=mitch')
-          .expect(200);
-        expect(body.total_count).to.equal(11);
       });
 
       describe('/:article_id', () => {

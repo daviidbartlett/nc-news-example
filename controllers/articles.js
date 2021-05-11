@@ -1,14 +1,12 @@
 const {
   selectArticles,
-  countArticles,
   selectArticleById,
   updateArticleById,
 } = require('../models/articles');
 
 exports.getArticles = async (req, res) => {
   const articles = await selectArticles(req.query);
-  const total_count = await countArticles(req.query);
-  res.send({ articles, total_count });
+  res.send({ articles });
 };
 
 exports.getArticleById = async (req, res) => {

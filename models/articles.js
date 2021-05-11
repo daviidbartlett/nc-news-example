@@ -6,8 +6,6 @@ exports.selectArticles = async ({
   sort_by = 'created_at',
   order = 'desc',
   topic,
-  p = 1,
-  limit = 10,
 }) => {
   const validSortBy = await validateSortBy(sort_by, [
     'created_at',
@@ -15,8 +13,7 @@ exports.selectArticles = async ({
     'title',
   ]);
   const validOrder = await validateOrder(order);
-  const offset = (p - 1) * limit;
-  const dbQueryParams = [offset, limit];
+  const dbQueryParams = [];
 
   let queryStr = `SELECT articles.*,
   COUNT(comments.comment_id) AS comment_count
@@ -25,14 +22,14 @@ exports.selectArticles = async ({
 `;
 
   if (topic) {
-    queryStr += `WHERE articles.topic ILIKE $3`;
+    queryStr += `WHERE articles.topic ILIKE $1`;
     dbQueryParams.push(topic);
   }
 
   queryStr += `
   GROUP BY articles.article_id
-  ORDER BY ${validSortBy} ${validOrder}
-  OFFSET $1 LIMIT $2;`;
+  ORDER BY ${validSortBy} ${validOrder};
+  `;
 
   const articles = await db
     .query(queryStr, dbQueryParams)
@@ -42,21 +39,6 @@ exports.selectArticles = async ({
     await checkExists('topics', 'slug', topic);
   }
   return articles;
-};
-
-exports.countArticles = async ({ topic }) => {
-  let queryStr = `SELECT COUNT('*') FROM articles `;
-  const queryParams = [];
-
-  if (topic) {
-    queryStr += `WHERE articles.topic ILIKE $1`;
-    queryParams.push(topic);
-  }
-
-  const count = await db
-    .query(queryStr, queryParams)
-    .then((result) => Number(result.rows[0].count));
-  return count;
 };
 
 exports.selectArticleById = async (article_id) => {
