@@ -11,7 +11,7 @@ This repo is setup to be hosted on heroku. Follow the steps below to get your ow
 Install the heroku cli if you haven't already.
 
 ```bash
-$ npm i heroku -g
+npm i heroku -g
 ```
 
 ## 2. Create a Heroku App

@@ -11,6 +11,7 @@ exports.selectArticles = async ({
     'created_at',
     'votes',
     'title',
+    'comment_count',
   ]);
   const validOrder = await validateOrder(order);
   const dbQueryParams = [];
