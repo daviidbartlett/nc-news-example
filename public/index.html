@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Northcoders News API</title>
+  </head>
+  <body>
+    <header>
+      <h1>Northcoders News API</h1>
+    </header>
+
+    <h2>Routes</h2>
+
+    <article>
+      <details>
+        <summary>GET /api/topics</summary>
+        <details>
+          <summary>Example Response</summary>
+          <pre>
+            {
+              topics: [
+                {
+                  slug: String,
+                  description: String,
+                }
+              ]
+            }
+          </pre>
+        </details>
+      </details>
+    </article>
+
+    <article>
+      <details>
+        <summary>GET /api/articles</summary>
+        <details>
+          <summary>Accepted Queries</summary>
+          <ul>
+            <li>sort_by (defaults to created_at)</li>
+            <li>order (defaults to desc)</li>
+            <li>author</li>
+            <li>topic</li>
+          </ul>
+        </details>
+        <details>
+          <summary>Example Response</summary>
+          <pre>
+            {
+              articles: [
+                {
+                  article_id: Number,
+                  title: String,
+                  body: String,
+                  topic: String,
+                  author: String,
+                  votes: Number,
+                  created_at: String,
+                  comment_count: String
+                }
+              ]
+            }
+          </pre>
+        </details>
+      </details>
+    </article>
+
+    <article>
+      <details>
+        <summary>GET /api/articles/:article_id</summary>
+        <details>
+          <summary>Example Response</summary>
+          <pre>
+            {
+              article: {
+                article_id: Number,
+                title: String,
+                body: String,
+                topic: String,
+                author: String,
+                votes: Number,
+                created_at: String,
+                comment_count: String
+              }
+            }
+          </pre>
+        </details>
+      </details>
+    </article>
+
+    <article>
+      <details>
+        <summary>PATCH /api/articles/:article_id</summary>
+        <details>
+          <summary>Example Request</summary>
+          <pre>{ inc_votes: 1 }</pre>
+        </details>
+        <details>
+          <summary>Example Response</summary>
+          <pre>
+            {
+              article: {
+                article_id: Number,
+                title: String,
+                body: String,
+                topic: String,
+                author: String,
+                votes: Number,
+                created_at: String,
+                comment_count: String
+              }
+            }
+          </pre>
+        </details>
+      </details>
+    </article>
+
+    <article>
+      <details>
+        <summary>GET /api/articles/:article_id/comments</summary>
+        <details>
+          <summary>Accepted Queries</summary>
+          <ul>
+            <li>sort_by (defaults to created_at)</li>
+            <li>order (defaults to desc)</li>
+          </ul>
+        </details>
+        <details>
+          <summary>Example Response</summary>
+          <pre>
+            {
+              comments: [
+              {
+                comment_id: Number,
+                  body: String,
+                  article_id: Number,
+                  author: String,
+                  votes: Number,
+                  created_at: String
+                }
+              ]
+            }
+          </pre>
+        </details>
+      </details>
+    </article>
+
+    <article>
+      <details>
+        <summary>POST /api/articles/:article_id/comments</summary>
+        <details>
+          <summary>Example Request</summary>
+          <pre>
+            {
+              body: String,
+              username: String
+            }
+          </pre>
+        </details>
+        <details>
+          <summary>Example Response</summary>
+          <pre>
+            {
+              comment: {
+                comment_id: Number,
+                body: String,
+                article_id: Number,
+                author: String,
+                votes: Number,
+                created_at: String
+              }
+            }
+          </pre>
+        </details>
+      </details>
+    </article>
+
+    <article>
+      <details>
+        <summary>PATCH /api/comments/:comment_id</summary>
+        <details>
+          <summary>Example Request</summary>
+          <pre>{ inc_votes: 1 }</pre>
+        </details>
+        <details>
+          <summary>Example Response</summary>
+          <pre>
+            {
+              comment: {
+                comment_id: Number,
+                body: String,
+                article_id: Number,
+                author: String,
+                votes: Number,
+                created_at: String
+              }
+            }
+          </pre>
+        </details>
+      </details>
+    </article>
+
+    <article>
+      <details>
+        <summary>DELETE /api/comments/:comment_id</summary>
+        <details>
+          <summary>Example Response</summary>
+          <pre>{}</pre>
+        </details>
+      </details>
+    </article>
+
+    <article>
+      <details>
+        <summary>GET /api/users/:username</summary>
+        <details>
+          <summary>Example Response</summary>
+          <pre>
+            {
+              user: {
+                username: String,
+                name: String,
+                avatar_url: String
+              }
+            }
+          </pre>
+        </details>
+      </details>
+    </article>
+  </body>
+</html>
