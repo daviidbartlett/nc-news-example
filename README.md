@@ -68,6 +68,8 @@ If you are in your app's directory, and the database is correctly linked as an a
 Make sure to **run the seed prod script** from your `package.json`:
 
 ```bash
+npm install
+
 npm run seed-prod
 ```
 
