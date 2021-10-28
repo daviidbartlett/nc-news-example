@@ -1,23 +1,20 @@
 module.exports = [
   {
-    body:
-      "Oh, I've got compassion running out of my nose, pal! I'm the Sultan of Sentiment!",
+    body: "Oh, I've got compassion running out of my nose, pal! I'm the Sultan of Sentiment!",
     belongs_to: "They're not exactly dogs, are they?",
     created_by: 'butter_bridge',
     votes: 16,
     created_at: 1511354163389,
   },
   {
-    body:
-      'The beautiful thing about treasure is that it exists. Got to find out what kind of sheets these are; not cotton, not rayon, silky.',
+    body: 'The beautiful thing about treasure is that it exists. Got to find out what kind of sheets these are; not cotton, not rayon, silky.',
     belongs_to: 'Living in the shadow of a great man',
     created_by: 'butter_bridge',
     votes: 14,
     created_at: 1479818163389,
   },
   {
-    body:
-      'Replacing the quiet elegance of the dark suit and tie with the casual indifference of these muted earth tones is a form of fashion suicide, but, uh, call me crazy — onyou it works.',
+    body: 'Replacing the quiet elegance of the dark suit and tie with the casual indifference of these muted earth tones is a form of fashion suicide, but, uh, call me crazy — onyou it works.',
     belongs_to: 'Living in the shadow of a great man',
     created_by: 'icellusedkars',
     votes: 100,
@@ -67,14 +64,14 @@ module.exports = [
   },
   {
     body: 'git push origin master',
-    belongs_to: 'Living in the shadow of a great man',
+    belongs_to: 'Eight pug gifs that remind me of mitch',
     created_by: 'icellusedkars',
     votes: 0,
     created_at: 1227530163389,
   },
   {
     body: 'Ambidextrous marsupial',
-    belongs_to: 'Living in the shadow of a great man',
+    belongs_to: 'Eight pug gifs that remind me of mitch',
     created_by: 'icellusedkars',
     votes: 0,
     created_at: 1195994163389,
@@ -94,8 +91,7 @@ module.exports = [
     created_at: 1132922163389,
   },
   {
-    body:
-      'What do you see? I have no idea where this will lead us. This place I speak of, is known as the Black Lodge.',
+    body: 'What do you see? I have no idea where this will lead us. This place I speak of, is known as the Black Lodge.',
     belongs_to: 'UNCOVERED: catspiracy to bring down democracy',
     created_by: 'icellusedkars',
     votes: 16,

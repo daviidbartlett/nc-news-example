@@ -51,7 +51,7 @@ describe('/', () => {
       });
       it('GET status:200, each article has a comment count', async () => {
         const { body } = await request(app).get('/api/articles').expect(200);
-        expect(body.articles[2].comment_count).toBe('0');
+        expect(body.articles[2].comment_count).toBe('2');
         expect(body.articles[3].comment_count).toBe('0');
       });
       it('GET status:200, accepts a sort_by query to sort articles', async () => {
