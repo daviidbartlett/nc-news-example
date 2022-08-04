@@ -1,27 +1,25 @@
 name: Test and Deploy
 
 on:
-  push:
-    branches:
-      - main
+    push:
+        branches:
+            - main
 
 jobs:
-  greeting:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Greeting
-        run: echo hiya!
-    
-   test-utils:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout and Clone
-        uses: actions/checkout@v3
+    greeting:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Greeting
+              run: echo hiya!
 
-      - name: Install dependencies
-        run: npm install
+    test-utils:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout and Clone
+              uses: actions/checkout@v3
 
-      - name: Test utils
-        run: npm run test-utils
+            - name: Install dependencies
+              run: npm install
 
-
+            - name: Test utils
+              run: npm run test-utils
