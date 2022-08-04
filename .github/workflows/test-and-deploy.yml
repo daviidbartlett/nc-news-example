@@ -42,4 +42,4 @@ jobs:
               run: npm install
 
             - name: Test app
-              run: PGDATBASE=test_db PGUSER=test_user PGPASSWORD=password npm run test-app
+              run: PGDATABASE=test_db PGUSER=test_user PGPASSWORD=password npm run test-app
