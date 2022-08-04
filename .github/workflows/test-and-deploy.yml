@@ -8,9 +8,9 @@ on:
 jobs:
   greeting:
     runs-on: ubuntu-latest
-      steps:
-        - name: Greeting
-          run: echo hiya!
+    steps:
+      - name: Greeting
+        run: echo hiya!
     
    test-utils:
     runs-on: ubuntu-latest
@@ -20,7 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        
+
       - name: Test utils
         run: npm run test-utils
 
