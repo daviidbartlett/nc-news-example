@@ -7,6 +7,7 @@
 		"setup-dbs": "psql -f db/setup.sql",
 		"test": "jest",
 		"test-utils": "jest utils",
+		"test-app": "jest app",
 		"dev": "nodemon listen.js",
 		"start": "node listen.js",
 		"seed": "node ./db/run-seed.js",
